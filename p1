@@ -1,0 +1,156 @@
+// Maximum
+START  
+  // Take three numbers as input
+  INPUT num1, num2, num3  
+
+  // Check if num1 is greater than num2 and num3
+  IF num1 > num2 AND num1 > num3 THEN  
+    // If true, set max to num1
+    max = num1  
+  // Otherwise, check if num2 is greater than num1 and num3
+  ELSE IF num2 > num1 AND num2 > num3 THEN  
+    // If true, set max to num2
+    max = num2  
+  // Otherwise, num3 is the largest
+  ELSE  
+    max = num3  
+  ENDIF  
+
+  // Output the maximum value
+  OUTPUT max  
+END  
+
+// Rev array
+START  
+  // Input the size of the array
+  INPUT n  
+
+  // Declare an array of size n
+  DECLARE arr[n]  
+
+  // Loop to take array inputs
+  FOR i = 0 TO n-1 DO  
+    INPUT arr[i]  // Input each element of the array
+  ENDFOR  
+
+  // Declare another array to store reversed elements
+  DECLARE reversed[n]  
+
+  // Loop to reverse the array
+  FOR i = 0 TO n-1 DO  
+    reversed[i] = arr[n - 1 - i]  // Assign elements from the end of arr to the beginning of reversed
+  ENDFOR  
+
+  // Output the reversed array
+  OUTPUT reversed  
+END  
+
+
+// Prime or not
+START  
+  // Input the number to be checked
+  INPUT num  
+
+  // Check if the number is less than or equal to 1
+  IF num <= 1 THEN  
+    OUTPUT "Not Prime"  // Numbers <= 1 are not prime
+  ELSE  
+    isPrime = TRUE  // Assume the number is prime initially
+
+    // Loop from 2 to the square root of num
+    FOR i = 2 TO sqrt(num) DO  
+      // Check if num is divisible by i
+      IF num MOD i == 0 THEN  
+        isPrime = FALSE  // If divisible, it is not prime
+        BREAK  // Exit the loop as we found a divisor
+      ENDIF  
+    ENDFOR  
+
+    // Output whether the number is prime based on isPrime flag
+    IF isPrime THEN  
+      OUTPUT "Prime"  
+    ELSE  
+      OUTPUT "Not Prime"  
+    ENDIF  
+  ENDIF  
+END  
+
+
+// sort array using Bubble sort
+START  
+  // Input the size of the array
+  INPUT n  
+
+  // Declare an array of size n
+  DECLARE arr[n]  
+
+  // Loop to take array inputs
+  FOR i = 0 TO n-1 DO  
+    INPUT arr[i]  // Input each element of the array
+  ENDFOR  
+
+  // Outer loop for each pass
+  FOR i = 0 TO n-2 DO  
+    // Inner loop to compare adjacent elements
+    FOR j = 0 TO n-2-i DO  
+      // If the current element is greater than the next
+      IF arr[j] > arr[j+1] THEN  
+        SWAP arr[j] WITH arr[j+1]  // Swap the two elements
+      ENDIF  
+    ENDFOR  
+  ENDFOR  
+
+  // Output the sorted array
+  OUTPUT arr  
+END  
+
+
+
+// count numbers of a vowel in a stirng
+START  
+  // Input the string
+  INPUT str  
+
+  // Declare a string containing all vowels
+  vowels = "aeiouAEIOU"  
+
+  // Initialize a counter for vowels
+  count = 0  
+
+  // Loop through each character in the string
+  FOR i = 0 TO length(str) - 1 DO  
+    // Check if the current character is in the vowels string
+    IF str[i] IN vowels THEN  
+      count = count + 1  // Increment the count if it is a vowel
+    ENDIF  
+  ENDFOR  
+
+  // Output the total count of vowels
+  OUTPUT count  
+END  
+
+
+
+// fibo
+START  
+  // Input the number of terms to generate
+  INPUT n  
+
+  // Initialize the first two terms of the Fibonacci sequence
+  DECLARE a = 0, b = 1  
+
+  // Output the first term
+  OUTPUT a  
+
+  // Output the second term
+  OUTPUT b  
+
+  // Loop to generate the remaining terms
+  FOR i = 3 TO n DO  
+    c = a + b  // Calculate the next term
+    OUTPUT c  // Output the term
+    a = b  // Update a to the previous term
+    b = c  // Update b to the current term
+  ENDFOR  
+END  
+
